@@ -898,17 +898,26 @@
           card.style.top = '';
           card.style.left = '';
           card.style.width = '';
+          card.style.zIndex = '';
           if (card._spacer && card._spacer.parentNode) card._spacer.parentNode.removeChild(card._spacer);
           card._spacer = null;
           card._fixed = false;
         }
         return;
       }
-      if (card._fixed) return;
+      card.style.position = '';
+      card.style.top = '';
+      card.style.left = '';
+      card.style.width = '';
+      card.style.zIndex = '';
       var rect = card.getBoundingClientRect();
-      card._spacer = document.createElement('div');
-      card._spacer.style.height = rect.height + 'px';
-      card.parentNode.insertBefore(card._spacer, card.nextSibling);
+      if (!card._spacer) {
+        card._spacer = document.createElement('div');
+        card._spacer.style.height = rect.height + 'px';
+        card.parentNode.insertBefore(card._spacer, card.nextSibling);
+      } else {
+        card._spacer.style.height = rect.height + 'px';
+      }
       card.style.position = 'fixed';
       card.style.top = '16px';
       card.style.left = rect.left + 'px';
@@ -917,20 +926,23 @@
       card._fixed = true;
     }
 
-    fixPriceCard();
+    var retryCount = 0;
+    function tryFix() {
+      var card = document.getElementById('price-card');
+      if (card && card.offsetWidth > 0 && window.getComputedStyle(card).position !== 'fixed') {
+        fixPriceCard();
+      } else if (retryCount < 20) {
+        retryCount++;
+        setTimeout(tryFix, 200);
+      }
+    }
+
+    window.addEventListener('load', tryFix);
     window.addEventListener('resize', function() {
       var card = document.getElementById('price-card');
-      if (!card) return;
-      if (card._fixed) {
-        card.style.position = '';
-        card.style.top = '';
-        card.style.left = '';
-        card.style.width = '';
-        if (card._spacer && card._spacer.parentNode) card._spacer.parentNode.removeChild(card._spacer);
-        card._spacer = null;
-        card._fixed = false;
+      if (card && card._fixed) {
+        fixPriceCard();
       }
-      fixPriceCard();
     });
   </script>
 </body>
