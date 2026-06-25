@@ -489,9 +489,9 @@
 
               </div>
 
-              <!-- RIGHT COLUMN: Price card sticky -->
+              <!-- RIGHT COLUMN: Price card fixed -->
               <div class="lg:w-[35%] xl:w-[30%]">
-                <div class="lg:sticky lg:top-4 z-10">
+                <div id="price-card" class="lg:sticky lg:top-4 z-10">
                   <div class="bg-amp-blue rounded-xl p-5 text-white mb-6">
                     <p class="text-sm font-body text-blue-200 mb-1">Precio especial</p>
                     <div class="flex items-baseline gap-2">
@@ -886,6 +886,51 @@
           productTab.className = 'px-6 py-2.5 text-xs md:text-sm font-display font-medium rounded-l-xl bg-gray-100 text-amp-navy transition-[background-color] duration-150 focus-visible:outline-2 focus-visible:outline-amp-blue';
         });
       }
+    });
+
+    function fixPriceCard() {
+      var card = document.getElementById('price-card');
+      if (!card) return;
+      var lg = window.matchMedia('(min-width: 1024px)');
+      if (!lg.matches) {
+        if (card._fixed) {
+          card.style.position = '';
+          card.style.top = '';
+          card.style.left = '';
+          card.style.width = '';
+          if (card._spacer && card._spacer.parentNode) card._spacer.parentNode.removeChild(card._spacer);
+          card._spacer = null;
+          card._fixed = false;
+        }
+        return;
+      }
+      if (card._fixed) return;
+      var rect = card.getBoundingClientRect();
+      card._spacer = document.createElement('div');
+      card._spacer.style.height = rect.height + 'px';
+      card.parentNode.insertBefore(card._spacer, card.nextSibling);
+      card.style.position = 'fixed';
+      card.style.top = '16px';
+      card.style.left = rect.left + 'px';
+      card.style.width = rect.width + 'px';
+      card.style.zIndex = '10';
+      card._fixed = true;
+    }
+
+    fixPriceCard();
+    window.addEventListener('resize', function() {
+      var card = document.getElementById('price-card');
+      if (!card) return;
+      if (card._fixed) {
+        card.style.position = '';
+        card.style.top = '';
+        card.style.left = '';
+        card.style.width = '';
+        if (card._spacer && card._spacer.parentNode) card._spacer.parentNode.removeChild(card._spacer);
+        card._spacer = null;
+        card._fixed = false;
+      }
+      fixPriceCard();
     });
   </script>
 </body>
