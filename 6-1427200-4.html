@@ -888,62 +888,58 @@
       }
     });
 
-    function fixPriceCard() {
+    (function() {
       var card = document.getElementById('price-card');
       if (!card) return;
-      var lg = window.matchMedia('(min-width: 1024px)');
-      if (!lg.matches) {
-        if (card._fixed) {
-          card.style.position = '';
-          card.style.top = '';
-          card.style.left = '';
-          card.style.width = '';
-          card.style.zIndex = '';
-          if (card._spacer && card._spacer.parentNode) card._spacer.parentNode.removeChild(card._spacer);
-          card._spacer = null;
-          card._fixed = false;
+
+      function apply() {
+        var lg = window.matchMedia('(min-width: 1024px)');
+        if (!lg.matches) {
+          if (card._fixed) {
+            card.style.position = '';
+            card.style.top = '';
+            card.style.left = '';
+            card.style.width = '';
+            card.style.zIndex = '';
+            if (card._sp && card._sp.parentNode) card._sp.parentNode.removeChild(card._sp);
+            card._sp = null;
+            card._fixed = false;
+          }
+          return;
         }
-        return;
-      }
-      card.style.position = '';
-      card.style.top = '';
-      card.style.left = '';
-      card.style.width = '';
-      card.style.zIndex = '';
-      var rect = card.getBoundingClientRect();
-      if (!card._spacer) {
-        card._spacer = document.createElement('div');
-        card._spacer.style.height = rect.height + 'px';
-        card.parentNode.insertBefore(card._spacer, card.nextSibling);
-      } else {
-        card._spacer.style.height = rect.height + 'px';
-      }
-      card.style.position = 'fixed';
-      card.style.top = '16px';
-      card.style.left = rect.left + 'px';
-      card.style.width = rect.width + 'px';
-      card.style.zIndex = '10';
-      card._fixed = true;
-    }
 
-    var retryCount = 0;
-    function tryFix() {
-      var card = document.getElementById('price-card');
-      if (card && card.offsetWidth > 0 && window.getComputedStyle(card).position !== 'fixed') {
-        fixPriceCard();
-      } else if (retryCount < 20) {
-        retryCount++;
-        setTimeout(tryFix, 200);
-      }
-    }
+        if (card._fixed) return;
 
-    window.addEventListener('load', tryFix);
-    window.addEventListener('resize', function() {
-      var card = document.getElementById('price-card');
-      if (card && card._fixed) {
-        fixPriceCard();
+        var rect = card.getBoundingClientRect();
+        if (rect.width === 0) return;
+
+        card._sp = document.createElement('div');
+        card._sp.style.height = rect.height + 'px';
+        card.parentNode.insertBefore(card._sp, card.nextSibling);
+        card.style.position = 'fixed';
+        card.style.top = '16px';
+        card.style.left = rect.left + 'px';
+        card.style.width = rect.width + 'px';
+        card.style.zIndex = '10';
+        card._fixed = true;
       }
-    });
+
+      apply();
+      var tries = 0;
+      var iv = setInterval(function() { if (card._fixed || tries++ > 50) { clearInterval(iv); return; } apply(); }, 200);
+      window.addEventListener('load', apply);
+      window.addEventListener('resize', function() {
+        card._fixed = false;
+        card.style.position = '';
+        card.style.top = '';
+        card.style.left = '';
+        card.style.width = '';
+        card.style.zIndex = '';
+        if (card._sp && card._sp.parentNode) card._sp.parentNode.removeChild(card._sp);
+        card._sp = null;
+        apply();
+      });
+    })();
   </script>
 </body>
 
