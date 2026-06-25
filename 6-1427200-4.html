@@ -257,8 +257,10 @@
             </div>
 
             <div id="information-section" class="flex flex-col lg:flex-row gap-8">
-              <!-- IMÁGENES -->
-              <div class="lg:w-1/2">
+              <!-- LEFT COLUMN: All product content -->
+              <div class="lg:w-[65%] xl:w-[70%] min-w-0 space-y-6">
+
+                <!-- IMÁGENES -->
                 <div class="bg-white rounded-2xl shadow-sm p-4">
                   <div class="w-full aspect-square max-h-[450px] flex items-center justify-center overflow-hidden rounded-xl bg-amp-light">
                     <img id="img_main"
@@ -288,226 +290,224 @@
                     </button>
                   </div>
                 </div>
-              </div>
 
-              <!-- INFORMACIÓN -->
-              <div class="lg:w-1/2">
-                <div class="bg-white rounded-2xl">
-                  <!-- PRECIO STICKY EN MOBILE -->
-                  <div class="lg:sticky lg:top-4 z-10">
-                    <div class="bg-amp-blue rounded-xl p-5 text-white mb-6">
-                      <p class="text-sm font-body text-blue-200 mb-1">Precio especial</p>
-                      <div class="flex items-baseline gap-2">
-                        <span class="text-3xl md:text-4xl font-display font-bold tabular-nums">U$ 187.00</span>
-                        <span class="text-sm text-blue-200 font-body">por rollo</span>
-                      </div>
-                      <p class="text-xs text-blue-200 mt-1 font-body">1000ft (305m) - reel-in-box</p>
-                      <a href="https://www.ds3comunicaciones.com/pedido.html"
-                        class="mt-4 inline-flex items-center gap-2 bg-white text-amp-blue font-display font-semibold rounded-lg px-6 py-3 transition-[transform,box-shadow] duration-150 ease-out hover:shadow-lg active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-white"
-                        target="_blank">
-                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                        Comprar ahora
-                      </a>
+                <!-- DESCRIPCIÓN -->
+                <div>
+                  <h2 class="font-display font-semibold text-amp-navy text-lg mb-3 text-balance">Descripción</h2>
+                  <p class="text-gray-700 text-sm text-pretty mb-3 leading-relaxed">
+                    Los Cables AMP NetConnect categoría 6 exceden los requerimientos TIA/EIA-568-B.2-1 e ISO/IEC 11801 Clase E. Cumplen con todos los requisitos de rendimiento para aplicaciones actuales y propuestos, tales como Gigabit Ethernet (1000BASE-TX), 10/100BASE-TX, Token Ring, ATM 155 Mbps, 100 Mbps TPPMD, Video ISDN, analógico y digital y voz (VoIP).
+                  </p>
+                  <p class="text-gray-700 text-sm text-pretty mb-3 leading-relaxed">
+                    AMP NetConnect categoría 6 cables UTP están disponibles en (CMR) colores estándar, incluyendo blanco, gris y azul. El embalaje es en un reel-in-box, con el estándar 1000ft libres de empalme longitudinales.
+                  </p>
+                </div>
+
+                <!-- ESPECIFICACIONES RÁPIDAS -->
+                <div>
+                  <h3 class="font-display font-semibold text-amp-navy text-base mb-3 text-balance">Especificaciones técnicas</h3>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
+                      <i class="fas fa-bolt text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
+                      <span class="text-sm text-gray-700"><span class="font-medium">Voltage:</span> 300VAC/VDC</span>
                     </div>
-                  </div>
-
-                  <!-- DESCRIPCIÓN -->
-                  <div>
-                    <h2 class="font-display font-semibold text-amp-navy text-lg mb-3 text-balance">Descripción</h2>
-                    <p class="text-gray-700 text-sm text-pretty mb-3 leading-relaxed">
-                      Los Cables AMP NetConnect categoría 6 exceden los requerimientos TIA/EIA-568-B.2-1 e ISO/IEC 11801 Clase E. Cumplen con todos los requisitos de rendimiento para aplicaciones actuales y propuestos, tales como Gigabit Ethernet (1000BASE-TX), 10/100BASE-TX, Token Ring, ATM 155 Mbps, 100 Mbps TPPMD, Video ISDN, analógico y digital y voz (VoIP).
-                    </p>
-                    <p class="text-gray-700 text-sm text-pretty mb-3 leading-relaxed">
-                      AMP NetConnect categoría 6 cables UTP están disponibles en (CMR) colores estándar, incluyendo blanco, gris y azul. El embalaje es en un reel-in-box, con el estándar 1000ft libres de empalme longitudinales.
-                    </p>
-                  </div>
-
-                  <!-- ESPECIFICACIONES RÁPIDAS -->
-                  <div class="mt-6">
-                    <h3 class="font-display font-semibold text-amp-navy text-base mb-3 text-balance">Especificaciones técnicas</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
-                        <i class="fas fa-bolt text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
-                        <span class="text-sm text-gray-700"><span class="font-medium">Voltage:</span> 300VAC/VDC</span>
-                      </div>
-                      <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
-                        <i class="fas fa-tachometer-alt text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
-                        <span class="text-sm text-gray-700"><span class="font-medium">NVP:</span> 70%</span>
-                      </div>
-                      <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
-                        <i class="fas fa-thermometer-half text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
-                        <span class="text-sm text-gray-700"><span class="font-medium">Operación:</span> -20°C a 60°C</span>
-                      </div>
-                      <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
-                        <i class="fas fa-warehouse text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
-                        <span class="text-sm text-gray-700"><span class="font-medium">Almacén:</span> -20°C a 80°C</span>
-                      </div>
-                      <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
-                        <i class="fas fa-box text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
-                        <span class="text-sm text-gray-700"><span class="font-medium">Formato:</span> 1000ft reel-in-box</span>
-                      </div>
-                      <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
-                        <i class="fas fa-certificate text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
-                        <span class="text-sm text-gray-700"><span class="font-medium">Estándar:</span> TIA/EIA-568-B.2-1</span>
-                      </div>
+                    <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
+                      <i class="fas fa-tachometer-alt text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
+                      <span class="text-sm text-gray-700"><span class="font-medium">NVP:</span> 70%</span>
                     </div>
-                  </div>
-
-                  <!-- DOWNLOAD -->
-                  <div class="mt-6">
-                    <h3 class="font-display font-semibold text-amp-navy text-base mb-3">Download</h3>
-                    <div class="flex flex-wrap gap-3">
-                      <a href="https://www.ds3comunicaciones.com/AMP/files/6-1427200-4-DS.pdf"
-                        class="inline-flex items-center gap-2 text-amp-blue bg-amp-light rounded-lg px-4 py-2.5 transition-[transform,box-shadow] duration-150 ease-out hover:shadow-md active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-amp-blue"
-                        target="_blank" rel="noopener noreferrer" aria-label="Descargar ficha técnica en PDF">
-                        <i class="fas fa-file-pdf text-red-500" aria-hidden="true"></i>
-                        <span class="text-sm font-medium">Datos Técnicos (PDF)</span>
-                      </a>
+                    <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
+                      <i class="fas fa-thermometer-half text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
+                      <span class="text-sm text-gray-700"><span class="font-medium">Operación:</span> -20°C a 60°C</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
+                      <i class="fas fa-warehouse text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
+                      <span class="text-sm text-gray-700"><span class="font-medium">Almacén:</span> -20°C a 80°C</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
+                      <i class="fas fa-box text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
+                      <span class="text-sm text-gray-700"><span class="font-medium">Formato:</span> 1000ft reel-in-box</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-amp-light rounded-lg px-3 py-2">
+                      <i class="fas fa-certificate text-amp-blue text-xs w-4 text-center" aria-hidden="true"></i>
+                      <span class="text-sm text-gray-700"><span class="font-medium">Estándar:</span> TIA/EIA-568-B.2-1</span>
                     </div>
                   </div>
                 </div>
+
+                <!-- DOWNLOAD -->
+                <div>
+                  <h3 class="font-display font-semibold text-amp-navy text-base mb-3">Download</h3>
+                  <div class="flex flex-wrap gap-3">
+                    <a href="https://www.ds3comunicaciones.com/AMP/files/6-1427200-4-DS.pdf"
+                      class="inline-flex items-center gap-2 text-amp-blue bg-amp-light rounded-lg px-4 py-2.5 transition-[transform,box-shadow] duration-150 ease-out hover:shadow-md active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-amp-blue"
+                      target="_blank" rel="noopener noreferrer" aria-label="Descargar ficha técnica en PDF">
+                      <i class="fas fa-file-pdf text-red-500" aria-hidden="true"></i>
+                      <span class="text-sm font-medium">Datos Técnicos (PDF)</span>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- GALERÍA -->
+                <div id="images-section" class="hidden">
+                  <h2 class="font-display font-semibold text-amp-navy text-lg mb-4 text-balance">Galería de imágenes</h2>
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                      <img src="https://www.ds3comunicaciones.com/AMP/images/6-1427200-4-1.jpg"
+                        alt="Vista frontal del cable AMP categoría 6"
+                        class="w-full aspect-square object-contain p-4 cursor-pointer transition-opacity duration-150 hover:opacity-90 outline outline-1 -outline-offset-1 outline-black/10"
+                        onclick="viewImage(this.src)" loading="lazy" />
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                      <img src="https://www.ds3comunicaciones.com/AMP/images/Caja.jpg"
+                        alt="Presentación del cable AMP en caja reel-in-box"
+                        class="w-full aspect-square object-contain p-4 cursor-pointer transition-opacity duration-150 hover:opacity-90 outline outline-1 -outline-offset-1 outline-black/10"
+                        onclick="viewImage(this.src)" loading="lazy" />
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+                      <img src="https://www.ds3comunicaciones.com/AMP/images/6-1427200-4-1.jpg"
+                        alt="Detalle del cable AMP categoría 6 23AWG"
+                        class="w-full aspect-square object-contain p-4 cursor-pointer transition-opacity duration-150 hover:opacity-90 outline outline-1 -outline-offset-1 outline-black/10"
+                        onclick="viewImage(this.src)" loading="lazy" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TABS -->
+                <div class="flex justify-center">
+                  <div class="inline-flex rounded-xl shadow-sm" role="tablist" aria-label="Secciones del producto">
+                    <button id="product-tab" role="tab" aria-selected="true" aria-controls="information-section"
+                      class="px-6 py-2.5 text-xs md:text-sm font-display font-medium rounded-l-xl bg-amp-blue text-white transition-[background-color] duration-150 focus-visible:outline-2 focus-visible:outline-amp-blue active:scale-[0.96]">
+                      Producto
+                    </button>
+                    <button id="images-tab" role="tab" aria-selected="false" aria-controls="images-section"
+                      class="px-6 py-2.5 text-xs md:text-sm font-display font-medium rounded-r-xl bg-gray-100 text-amp-navy transition-[background-color] duration-150 focus-visible:outline-2 focus-visible:outline-amp-blue active:scale-[0.96]">
+                      Imágenes
+                    </button>
+                  </div>
+                </div>
+
+                <!-- DETALLES EXPANDIBLES -->
+                <div class="mt-10 md:mt-12 w-full mx-auto space-y-4 mb-8">
+                  <details open class="group rounded-2xl overflow-hidden" style="box-shadow: var(--shadow-border);">
+                    <summary class="flex items-center justify-between p-4 bg-amp-light cursor-pointer transition-[background-color] duration-150 hover:bg-gray-200 focus-visible:outline-2 focus-visible:outline-amp-blue" aria-expanded="true">
+                      <h3 class="font-display font-semibold text-amp-navy flex items-center text-sm md:text-base gap-2 text-balance">
+                        <svg class="w-5 h-5 text-amp-blue transition-transform duration-150 group-open:rotate-90" fill="none"
+                          stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        Especificaciones Técnicas
+                      </h3>
+                      <span class="text-amp-blue text-xs font-body font-medium">Ver detalles</span>
+                    </summary>
+                    <div class="p-4 bg-white grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-cable-car text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700"><span class="font-medium">Tipo:</span> Cable UTP Categoría 6</p>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-ruler text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700"><span class="font-medium">Conductor:</span> 23 AWG</p>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-shield-alt text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700"><span class="font-medium">Chaqueta:</span> CMR (Riser)</p>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-box text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700"><span class="font-medium">Longitud:</span> 1000 ft (305 m)</p>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-bolt text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700"><span class="font-medium">Voltage:</span> 300VAC or VDC</p>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-tachometer-alt text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700"><span class="font-medium">NVP:</span> 70%</p>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-thermometer-half text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700"><span class="font-medium">Temp. Operación:</span> -20°C a 60°C</p>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-warehouse text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700"><span class="font-medium">Temp. Almacenamiento:</span> -20°C a 80°C</p>
+                      </div>
+                    </div>
+                  </details>
+
+                  <details class="group rounded-2xl overflow-hidden" style="box-shadow: var(--shadow-border);">
+                    <summary class="flex items-center justify-between p-4 bg-amp-light cursor-pointer transition-[background-color] duration-150 hover:bg-gray-200 focus-visible:outline-2 focus-visible:outline-amp-blue" aria-expanded="false">
+                      <h3 class="font-display font-semibold text-amp-navy flex items-center gap-2 text-sm md:text-base text-balance">
+                        <svg class="w-5 h-5 text-amp-blue transition-transform duration-150 group-open:rotate-90" fill="none"
+                          stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        Certificaciones y Cumplimiento
+                      </h3>
+                      <span class="text-amp-blue text-xs font-body font-medium">Ver detalles</span>
+                    </summary>
+                    <div class="p-4 bg-white">
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-certificate text-amp-blue mt-0.5" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700 text-pretty leading-relaxed">
+                          Excede los requerimientos TIA/EIA-568-B.2-1 e ISO/IEC 11801 Clase E. Cumplimiento de inflamabilidad según NEC artículo 800 y NFPA 70, CMR (ANSI/UL 1666, IEC 332-1). Rendimiento verificado independientemente y caracterizado a 600 MHz. Cable horizontal debe ser AMP NETCONNECT número X-1427200-X.
+                        </p>
+                      </div>
+                    </div>
+                  </details>
+
+                  <details class="group rounded-2xl overflow-hidden" style="box-shadow: var(--shadow-border);">
+                    <summary class="flex items-center justify-between p-4 bg-amp-light cursor-pointer transition-[background-color] duration-150 hover:bg-gray-200 focus-visible:outline-2 focus-visible:outline-amp-blue" aria-expanded="false">
+                      <h3 class="font-display font-semibold text-amp-navy flex items-center gap-2 text-sm md:text-base text-balance">
+                        <svg class="w-5 h-5 text-amp-blue transition-transform duration-150 group-open:rotate-90" fill="none"
+                          stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        Aplicaciones
+                      </h3>
+                      <span class="text-amp-blue text-xs font-body font-medium">Ver detalles</span>
+                    </summary>
+                    <div class="p-4 bg-white grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-wifi text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700">Gigabit Ethernet (1000BASE-TX)</p>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-exchange-alt text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700">10/100BASE-TX, Token Ring, ATM 155 Mbps</p>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-video text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700">100 Mbps TPPMD, Video ISDN</p>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i class="fas fa-phone-alt text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
+                        <p class="text-sm text-gray-700">Voz análogica y digital (VoIP)</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+
               </div>
-            </div>
 
-            <!-- GALERÍA DE IMÁGENES -->
-            <div id="images-section" class="hidden mt-8">
-              <h2 class="font-display font-semibold text-amp-navy text-lg mb-4 text-balance">Galería de imágenes</h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                  <img src="https://www.ds3comunicaciones.com/AMP/images/6-1427200-4-1.jpg"
-                    alt="Vista frontal del cable AMP categoría 6"
-                    class="w-full aspect-square object-contain p-4 cursor-pointer transition-opacity duration-150 hover:opacity-90 outline outline-1 -outline-offset-1 outline-black/10"
-                    onclick="viewImage(this.src)" loading="lazy" />
-                </div>
-                <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                  <img src="https://www.ds3comunicaciones.com/AMP/images/Caja.jpg"
-                    alt="Presentación del cable AMP en caja reel-in-box"
-                    class="w-full aspect-square object-contain p-4 cursor-pointer transition-opacity duration-150 hover:opacity-90 outline outline-1 -outline-offset-1 outline-black/10"
-                    onclick="viewImage(this.src)" loading="lazy" />
-                </div>
-                <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                  <img src="https://www.ds3comunicaciones.com/AMP/images/6-1427200-4-1.jpg"
-                    alt="Detalle del cable AMP categoría 6 23AWG"
-                    class="w-full aspect-square object-contain p-4 cursor-pointer transition-opacity duration-150 hover:opacity-90 outline outline-1 -outline-offset-1 outline-black/10"
-                    onclick="viewImage(this.src)" loading="lazy" />
+              <!-- RIGHT COLUMN: Price card sticky -->
+              <div class="lg:w-[35%] xl:w-[30%]">
+                <div class="lg:sticky lg:top-4 z-10">
+                  <div class="bg-amp-blue rounded-xl p-5 text-white mb-6">
+                    <p class="text-sm font-body text-blue-200 mb-1">Precio especial</p>
+                    <div class="flex items-baseline gap-2">
+                      <span class="text-3xl md:text-4xl font-display font-bold tabular-nums">U$ 187.00</span>
+                      <span class="text-sm text-blue-200 font-body">por rollo</span>
+                    </div>
+                    <p class="text-xs text-blue-200 mt-1 font-body">1000ft (305m) - reel-in-box</p>
+                    <a href="https://www.ds3comunicaciones.com/pedido.html"
+                      class="mt-4 inline-flex items-center gap-2 bg-white text-amp-blue font-display font-semibold rounded-lg px-6 py-3 transition-[transform,box-shadow] duration-150 ease-out hover:shadow-lg active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-white"
+                      target="_blank">
+                      <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                      Comprar ahora
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <!-- TABS -->
-            <div class="flex justify-center mt-8">
-              <div class="inline-flex rounded-xl shadow-sm" role="tablist" aria-label="Secciones del producto">
-                <button id="product-tab" role="tab" aria-selected="true" aria-controls="information-section"
-                  class="px-6 py-2.5 text-xs md:text-sm font-display font-medium rounded-l-xl bg-amp-blue text-white transition-[background-color] duration-150 focus-visible:outline-2 focus-visible:outline-amp-blue active:scale-[0.96]">
-                  Producto
-                </button>
-                <button id="images-tab" role="tab" aria-selected="false" aria-controls="images-section"
-                  class="px-6 py-2.5 text-xs md:text-sm font-display font-medium rounded-r-xl bg-gray-100 text-amp-navy transition-[background-color] duration-150 focus-visible:outline-2 focus-visible:outline-amp-blue active:scale-[0.96]">
-                  Imágenes
-                </button>
-              </div>
-            </div>
-
-            <!-- DETALLES EXPANDIBLES -->
-            <div class="mt-10 md:mt-12 w-full mx-auto space-y-4 mb-8">
-              <details open class="group rounded-2xl overflow-hidden" style="box-shadow: var(--shadow-border);">
-                <summary class="flex items-center justify-between p-4 bg-amp-light cursor-pointer transition-[background-color] duration-150 hover:bg-gray-200 focus-visible:outline-2 focus-visible:outline-amp-blue" aria-expanded="true">
-                  <h3 class="font-display font-semibold text-amp-navy flex items-center text-sm md:text-base gap-2 text-balance">
-                    <svg class="w-5 h-5 text-amp-blue transition-transform duration-150 group-open:rotate-90" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                    Especificaciones Técnicas
-                  </h3>
-                  <span class="text-amp-blue text-xs font-body font-medium">Ver detalles</span>
-                </summary>
-                <div class="p-4 bg-white grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-cable-car text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700"><span class="font-medium">Tipo:</span> Cable UTP Categoría 6</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-ruler text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700"><span class="font-medium">Conductor:</span> 23 AWG</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-shield-alt text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700"><span class="font-medium">Chaqueta:</span> CMR (Riser)</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-box text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700"><span class="font-medium">Longitud:</span> 1000 ft (305 m)</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-bolt text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700"><span class="font-medium">Voltage:</span> 300VAC or VDC</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-tachometer-alt text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700"><span class="font-medium">NVP:</span> 70%</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-thermometer-half text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700"><span class="font-medium">Temp. Operación:</span> -20°C a 60°C</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-warehouse text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700"><span class="font-medium">Temp. Almacenamiento:</span> -20°C a 80°C</p>
-                  </div>
-                </div>
-              </details>
-
-              <details class="group rounded-2xl overflow-hidden" style="box-shadow: var(--shadow-border);">
-                <summary class="flex items-center justify-between p-4 bg-amp-light cursor-pointer transition-[background-color] duration-150 hover:bg-gray-200 focus-visible:outline-2 focus-visible:outline-amp-blue" aria-expanded="false">
-                  <h3 class="font-display font-semibold text-amp-navy flex items-center gap-2 text-sm md:text-base text-balance">
-                    <svg class="w-5 h-5 text-amp-blue transition-transform duration-150 group-open:rotate-90" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                    Certificaciones y Cumplimiento
-                  </h3>
-                  <span class="text-amp-blue text-xs font-body font-medium">Ver detalles</span>
-                </summary>
-                <div class="p-4 bg-white">
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-certificate text-amp-blue mt-0.5" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700 text-pretty leading-relaxed">
-                      Excede los requerimientos TIA/EIA-568-B.2-1 e ISO/IEC 11801 Clase E. Cumplimiento de inflamabilidad según NEC artículo 800 y NFPA 70, CMR (ANSI/UL 1666, IEC 332-1). Rendimiento verificado independientemente y caracterizado a 600 MHz. Cable horizontal debe ser AMP NETCONNECT número X-1427200-X.
-                    </p>
-                  </div>
-                </div>
-              </details>
-
-              <details class="group rounded-2xl overflow-hidden" style="box-shadow: var(--shadow-border);">
-                <summary class="flex items-center justify-between p-4 bg-amp-light cursor-pointer transition-[background-color] duration-150 hover:bg-gray-200 focus-visible:outline-2 focus-visible:outline-amp-blue" aria-expanded="false">
-                  <h3 class="font-display font-semibold text-amp-navy flex items-center gap-2 text-sm md:text-base text-balance">
-                    <svg class="w-5 h-5 text-amp-blue transition-transform duration-150 group-open:rotate-90" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                    Aplicaciones
-                  </h3>
-                  <span class="text-amp-blue text-xs font-body font-medium">Ver detalles</span>
-                </summary>
-                <div class="p-4 bg-white grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-wifi text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700">Gigabit Ethernet (1000BASE-TX)</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-exchange-alt text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700">10/100BASE-TX, Token Ring, ATM 155 Mbps</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-video text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700">100 Mbps TPPMD, Video ISDN</p>
-                  </div>
-                  <div class="flex items-start gap-2">
-                    <i class="fas fa-phone-alt text-amp-blue mt-0.5 text-sm" aria-hidden="true"></i>
-                    <p class="text-sm text-gray-700">Voz análogica y digital (VoIP)</p>
-                  </div>
-                </div>
-              </details>
             </div>
           </div>
 
