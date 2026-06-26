@@ -799,87 +799,14 @@
 
   <script src="./js/change_tabs.js"></script>
   <script>
-    (function() {
-      var priceCard = document.getElementById('price-card');
-      if (!priceCard) return;
-
-      var spacer = null;
-      var isFixed = false;
-      var naturalTop = 0;
-
-      function getNaturalTop(el) {
-        var rect = el.getBoundingClientRect();
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        return rect.top + scrollTop;
+    document.querySelectorAll('[style*="position: fixed"]').forEach(function(el) {
+      if (el.id === 'price-card') {
+        el.style.position = '';
+        el.style.top = '';
+        el.style.left = '';
+        el.style.width = '';
       }
-
-      function update() {
-        var isDesktop = window.innerWidth >= 1024;
-
-        if (!isDesktop) {
-          if (isFixed) {
-            priceCard.style.position = '';
-            priceCard.style.top = '';
-            priceCard.style.left = '';
-            priceCard.style.width = '';
-            if (spacer) { spacer.remove(); spacer = null; }
-            isFixed = false;
-          }
-          return;
-        }
-
-        if (!isFixed) {
-          naturalTop = getNaturalTop(priceCard);
-        }
-
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        var shouldFix = (scrollTop + 16) >= naturalTop;
-
-        if (shouldFix && !isFixed) {
-          var parent = priceCard.parentNode;
-          if (!parent) return;
-          var pr = parent.getBoundingClientRect();
-
-          spacer = document.createElement('div');
-          spacer.style.height = priceCard.offsetHeight + 'px';
-          parent.insertBefore(spacer, priceCard.nextSibling);
-
-          priceCard.style.position = 'fixed';
-          priceCard.style.top = '16px';
-          priceCard.style.left = pr.left + 'px';
-          priceCard.style.width = pr.width + 'px';
-          isFixed = true;
-        } else if (!shouldFix && isFixed) {
-          priceCard.style.position = '';
-          priceCard.style.top = '';
-          priceCard.style.left = '';
-          priceCard.style.width = '';
-          if (spacer) { spacer.remove(); spacer = null; }
-          isFixed = false;
-        } else if (isFixed) {
-          var parent = priceCard.parentNode;
-          if (parent) {
-            var pr = parent.getBoundingClientRect();
-            priceCard.style.left = pr.left + 'px';
-            priceCard.style.width = pr.width + 'px';
-          }
-        }
-      }
-
-      window.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', update);
-
-      function init() {
-        update();
-        setTimeout(update, 600);
-      }
-
-      if (document.readyState === 'complete') {
-        init();
-      } else {
-        window.addEventListener('load', init);
-      }
-    })();
+    });
   </script>
 </body>
 
