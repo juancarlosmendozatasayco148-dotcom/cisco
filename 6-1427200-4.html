@@ -287,7 +287,7 @@
               <div id="info-column" class="lg:w-1/2">
                 <div class="bg-white rounded-2xl">
                   <!-- PRECIO -->
-                  <div id="price-card">
+                  <div id="price-card" class="lg:sticky lg:top-4">
                     <div class="bg-gradient-to-r from-amp-blue to-blue-700 rounded-xl p-5 text-white mb-6">
                       <p class="text-sm font-body text-blue-200 mb-1">Precio especial</p>
                       <div class="flex items-baseline gap-2">
@@ -798,74 +798,6 @@
   </footer>
 
   <script src="./js/change_tabs.js"></script>
-  <script>
-    (function() {
-      var priceCard = document.getElementById('price-card');
-      if (!priceCard) return;
-
-      var spacer = null;
-      var priceCardHeight = 0;
-      var parentWidth = 0;
-
-      function fixPriceCard() {
-        var isDesktop = window.innerWidth >= 1024;
-
-        if (spacer) {
-          spacer.remove();
-          spacer = null;
-        }
-        priceCard.style.position = '';
-        priceCard.style.top = '';
-        priceCard.style.width = '';
-        priceCard.style.left = '';
-        priceCard.style.zIndex = '';
-
-        if (!isDesktop) return;
-
-        var parent = priceCard.parentNode;
-        if (!parent) return;
-
-        var parentRect = parent.getBoundingClientRect();
-
-        if (spacer) spacer.remove();
-        spacer = document.createElement('div');
-        spacer.style.height = priceCard.offsetHeight + 'px';
-        parent.insertBefore(spacer, priceCard.nextSibling);
-
-        priceCardHeight = priceCard.offsetHeight;
-        parentWidth = parentRect.width;
-
-        priceCard.style.position = 'fixed';
-        priceCard.style.top = '16px';
-        priceCard.style.left = parentRect.left + 'px';
-        priceCard.style.width = parentWidth + 'px';
-        priceCard.style.zIndex = '10';
-      }
-
-      function onScroll() {
-        if (window.innerWidth >= 1024) {
-          var parent = priceCard.parentNode;
-          if (parent && priceCard.style.position === 'fixed') {
-            var pr = parent.getBoundingClientRect();
-            priceCard.style.left = pr.left + 'px';
-            priceCard.style.width = pr.width + 'px';
-          }
-        }
-      }
-
-      function init() {
-        fixPriceCard();
-        window.addEventListener('scroll', function() { onScroll(); });
-        window.addEventListener('resize', function() { fixPriceCard(); });
-      }
-
-      if (document.readyState === 'complete') {
-        init();
-      } else {
-        window.addEventListener('load', init);
-      }
-    })();
-  </script>
 </body>
 
 </html>
