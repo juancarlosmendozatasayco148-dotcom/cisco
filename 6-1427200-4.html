@@ -802,69 +802,68 @@
     (function() {
       var priceCard = document.getElementById('price-card');
       if (!priceCard) return;
+
       var spacer = null;
-      var naturalTop = 0;
+      var priceCardHeight = 0;
+      var parentWidth = 0;
 
-      function updatePricePosition() {
+      function fixPriceCard() {
         var isDesktop = window.innerWidth >= 1024;
-        if (!isDesktop) {
-          if (spacer) { spacer.remove(); spacer = null; }
-          priceCard.style.position = '';
-          priceCard.style.top = '';
-          priceCard.style.width = '';
-          priceCard.style.zIndex = '';
-          return;
+
+        if (spacer) {
+          spacer.remove();
+          spacer = null;
         }
+        priceCard.style.position = '';
+        priceCard.style.top = '';
+        priceCard.style.width = '';
+        priceCard.style.left = '';
+        priceCard.style.zIndex = '';
 
-        if (!spacer) {
-          spacer = document.createElement('div');
-          spacer.style.height = priceCard.offsetHeight + 'px';
-          priceCard.parentNode.insertBefore(spacer, priceCard.nextSibling);
-          var rect = priceCard.getBoundingClientRect();
-          naturalTop = rect.top + window.pageYOffset;
-        }
+        if (!isDesktop) return;
 
-        var scrollY = window.pageYOffset;
-        var parentRect = priceCard.parentNode.getBoundingClientRect();
-        var parentBottom = parentRect.top + parentRect.height;
+        var parent = priceCard.parentNode;
+        if (!parent) return;
 
-        if (scrollY >= naturalTop - 16) {
-          if (parentBottom > 16 + priceCard.offsetHeight) {
-            priceCard.style.position = 'fixed';
-            priceCard.style.top = '16px';
-            priceCard.style.width = priceCard.parentNode.offsetWidth - 32 + 'px';
-            priceCard.style.zIndex = '10';
-          } else {
-            priceCard.style.position = '';
-            priceCard.style.top = '';
-            priceCard.style.width = '';
-            priceCard.style.zIndex = '';
+        var parentRect = parent.getBoundingClientRect();
+
+        if (spacer) spacer.remove();
+        spacer = document.createElement('div');
+        spacer.style.height = priceCard.offsetHeight + 'px';
+        parent.insertBefore(spacer, priceCard.nextSibling);
+
+        priceCardHeight = priceCard.offsetHeight;
+        parentWidth = parentRect.width;
+
+        priceCard.style.position = 'fixed';
+        priceCard.style.top = '16px';
+        priceCard.style.left = parentRect.left + 'px';
+        priceCard.style.width = parentWidth + 'px';
+        priceCard.style.zIndex = '10';
+      }
+
+      function onScroll() {
+        if (window.innerWidth >= 1024) {
+          var parent = priceCard.parentNode;
+          if (parent && priceCard.style.position === 'fixed') {
+            var pr = parent.getBoundingClientRect();
+            priceCard.style.left = pr.left + 'px';
+            priceCard.style.width = pr.width + 'px';
           }
-        } else {
-          priceCard.style.position = '';
-          priceCard.style.top = '';
-          priceCard.style.width = '';
-          priceCard.style.zIndex = '';
         }
       }
 
-      var ticking = false;
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          window.requestAnimationFrame(function() {
-            updatePricePosition();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
+      function init() {
+        fixPriceCard();
+        window.addEventListener('scroll', function() { onScroll(); });
+        window.addEventListener('resize', function() { fixPriceCard(); });
+      }
 
-      window.addEventListener('resize', function() {
-        if (spacer) { spacer.remove(); spacer = null; }
-        updatePricePosition();
-      });
-
-      updatePricePosition();
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        window.addEventListener('load', init);
+      }
     })();
   </script>
 </body>
