@@ -249,9 +249,9 @@
               </h1>
             </div>
 
-            <div id="information-section" class="flex flex-col lg:flex-row lg:items-start gap-8">
+            <div id="information-section" class="flex flex-col lg:flex-row gap-8">
               <!-- IMÁGENES -->
-              <div class="lg:w-5/12">
+              <div class="lg:w-1/2">
                 <div class="bg-white rounded-2xl shadow-sm p-4">
                   <div class="w-full aspect-square max-h-[450px] flex items-center justify-center overflow-hidden rounded-xl bg-amp-light">
                     <img id="img_main"
@@ -283,27 +283,26 @@
                 </div>
               </div>
 
-              <!-- PRECIO STICKY (independiente del texto) -->
-              <div class="lg:w-3/12 lg:sticky lg:top-4 lg:self-start">
-                <div class="bg-gradient-to-r from-amp-blue to-blue-700 rounded-xl p-5 text-white">
-                  <p class="text-sm font-body text-blue-200 mb-1">Precio especial</p>
-                  <div class="flex items-baseline gap-2">
-                    <span class="text-3xl md:text-4xl font-display font-bold tabular-nums">U$ 187.00</span>
-                    <span class="text-sm text-blue-200 font-body">por rollo</span>
-                  </div>
-                  <p class="text-xs text-blue-200 mt-1 font-body">1000ft (305m) - reel-in-box</p>
-                  <a href="https://www.ds3comunicaciones.com/pedido.html"
-                    class="mt-4 inline-flex items-center gap-2 bg-white text-amp-blue font-display font-semibold rounded-lg px-6 py-3 transition-[transform,box-shadow] duration-150 ease-out hover:shadow-lg active:scale-[0.96] will-change-transform focus-visible:outline-2 focus-visible:outline-white"
-                    target="_blank">
-                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                    Comprar ahora
-                  </a>
-                </div>
-              </div>
-
-              <!-- INFORMACIÓN (texto, scroll normal) -->
-              <div class="lg:w-4/12">
+              <!-- INFORMACIÓN -->
+              <div id="info-column" class="lg:w-1/2">
                 <div class="bg-white rounded-2xl">
+                  <!-- PRECIO -->
+                  <div id="price-card">
+                    <div class="bg-gradient-to-r from-amp-blue to-blue-700 rounded-xl p-5 text-white mb-6">
+                      <p class="text-sm font-body text-blue-200 mb-1">Precio especial</p>
+                      <div class="flex items-baseline gap-2">
+                        <span class="text-3xl md:text-4xl font-display font-bold tabular-nums">U$ 187.00</span>
+                        <span class="text-sm text-blue-200 font-body">por rollo</span>
+                      </div>
+                      <p class="text-xs text-blue-200 mt-1 font-body">1000ft (305m) - reel-in-box</p>
+                      <a href="https://www.ds3comunicaciones.com/pedido.html"
+                        class="mt-4 inline-flex items-center gap-2 bg-white text-amp-blue font-display font-semibold rounded-lg px-6 py-3 transition-[transform,box-shadow] duration-150 ease-out hover:shadow-lg active:scale-[0.96] will-change-transform focus-visible:outline-2 focus-visible:outline-white"
+                        target="_blank">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        Comprar ahora
+                      </a>
+                    </div>
+                  </div>
                   <!-- DESCRIPCIÓN -->
                   <div>
                     <h2 class="font-display font-semibold text-amp-navy text-lg mb-3 text-balance">Descripción</h2>
@@ -799,6 +798,75 @@
   </footer>
 
   <script src="./js/change_tabs.js"></script>
+  <script>
+    (function() {
+      var priceCard = document.getElementById('price-card');
+      if (!priceCard) return;
+      var spacer = null;
+      var naturalTop = 0;
+
+      function updatePricePosition() {
+        var isDesktop = window.innerWidth >= 1024;
+        if (!isDesktop) {
+          if (spacer) { spacer.remove(); spacer = null; }
+          priceCard.style.position = '';
+          priceCard.style.top = '';
+          priceCard.style.width = '';
+          priceCard.style.zIndex = '';
+          return;
+        }
+
+        if (!spacer) {
+          spacer = document.createElement('div');
+          spacer.style.height = priceCard.offsetHeight + 'px';
+          priceCard.parentNode.insertBefore(spacer, priceCard.nextSibling);
+          var rect = priceCard.getBoundingClientRect();
+          naturalTop = rect.top + window.pageYOffset;
+        }
+
+        var scrollY = window.pageYOffset;
+        var parentRect = priceCard.parentNode.getBoundingClientRect();
+        var parentBottom = parentRect.top + parentRect.height;
+
+        if (scrollY >= naturalTop - 16) {
+          if (parentBottom > 16 + priceCard.offsetHeight) {
+            priceCard.style.position = 'fixed';
+            priceCard.style.top = '16px';
+            priceCard.style.width = priceCard.parentNode.offsetWidth - 32 + 'px';
+            priceCard.style.zIndex = '10';
+          } else {
+            priceCard.style.position = '';
+            priceCard.style.top = '';
+            priceCard.style.width = '';
+            priceCard.style.zIndex = '';
+          }
+        } else {
+          priceCard.style.position = '';
+          priceCard.style.top = '';
+          priceCard.style.width = '';
+          priceCard.style.zIndex = '';
+        }
+      }
+
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            updatePricePosition();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      window.addEventListener('resize', function() {
+        if (spacer) { spacer.remove(); spacer = null; }
+        updatePricePosition();
+      });
+
+      updatePricePosition();
+    })();
+  </script>
 </body>
 
 </html>
