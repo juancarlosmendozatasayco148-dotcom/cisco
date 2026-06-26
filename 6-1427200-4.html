@@ -287,7 +287,7 @@
               <div id="info-column" class="lg:w-1/2 lg:self-start">
                 <div class="bg-white rounded-2xl">
                   <!-- PRECIO -->
-                  <div id="price-card" class="lg:sticky lg:top-4">
+                  <div id="price-card">
                     <div class="bg-gradient-to-r from-amp-blue to-blue-700 rounded-xl p-5 text-white mb-6">
                       <p class="text-sm font-body text-blue-200 mb-1">Precio especial</p>
                       <div class="flex items-baseline gap-2">
@@ -798,16 +798,7 @@
   </footer>
 
   <script src="./js/change_tabs.js"></script>
-  <script>
-    document.querySelectorAll('[style*="position: fixed"]').forEach(function(el) {
-      if (el.id === 'price-card') {
-        el.style.position = '';
-        el.style.top = '';
-        el.style.left = '';
-        el.style.width = '';
-      }
-    });
-  </script>
+
 </body>
 
 </html>
