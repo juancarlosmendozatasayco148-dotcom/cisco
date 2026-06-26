@@ -251,7 +251,7 @@
 
             <div id="information-section" class="flex flex-col lg:flex-row lg:items-start gap-8">
               <!-- IMÁGENES -->
-              <div class="lg:w-1/2">
+              <div class="lg:w-5/12">
                 <div class="bg-white rounded-2xl shadow-sm p-4">
                   <div class="w-full aspect-square max-h-[450px] flex items-center justify-center overflow-hidden rounded-xl bg-amp-light">
                     <img id="img_main"
@@ -283,27 +283,27 @@
                 </div>
               </div>
 
-              <!-- INFORMACIÓN -->
-              <div class="lg:w-1/2">
-                <div class="bg-white rounded-2xl">
-                  <!-- PRECIO STICKY EN MOBILE -->
-                  <div class="lg:sticky lg:top-4 z-10">
-                    <div class="bg-gradient-to-r from-amp-blue to-blue-700 rounded-xl p-5 text-white mb-6">
-                      <p class="text-sm font-body text-blue-200 mb-1">Precio especial</p>
-                      <div class="flex items-baseline gap-2">
-                        <span class="text-3xl md:text-4xl font-display font-bold tabular-nums">U$ 187.00</span>
-                        <span class="text-sm text-blue-200 font-body">por rollo</span>
-                      </div>
-                      <p class="text-xs text-blue-200 mt-1 font-body">1000ft (305m) - reel-in-box</p>
-                      <a href="https://www.ds3comunicaciones.com/pedido.html"
-                        class="mt-4 inline-flex items-center gap-2 bg-white text-amp-blue font-display font-semibold rounded-lg px-6 py-3 transition-[transform,box-shadow] duration-150 ease-out hover:shadow-lg active:scale-[0.96] will-change-transform focus-visible:outline-2 focus-visible:outline-white"
-                        target="_blank">
-                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                        Comprar ahora
-                      </a>
-                    </div>
+              <!-- PRECIO STICKY (independiente del texto) -->
+              <div class="lg:w-3/12 lg:sticky lg:top-4 lg:self-start">
+                <div class="bg-gradient-to-r from-amp-blue to-blue-700 rounded-xl p-5 text-white">
+                  <p class="text-sm font-body text-blue-200 mb-1">Precio especial</p>
+                  <div class="flex items-baseline gap-2">
+                    <span class="text-3xl md:text-4xl font-display font-bold tabular-nums">U$ 187.00</span>
+                    <span class="text-sm text-blue-200 font-body">por rollo</span>
                   </div>
+                  <p class="text-xs text-blue-200 mt-1 font-body">1000ft (305m) - reel-in-box</p>
+                  <a href="https://www.ds3comunicaciones.com/pedido.html"
+                    class="mt-4 inline-flex items-center gap-2 bg-white text-amp-blue font-display font-semibold rounded-lg px-6 py-3 transition-[transform,box-shadow] duration-150 ease-out hover:shadow-lg active:scale-[0.96] will-change-transform focus-visible:outline-2 focus-visible:outline-white"
+                    target="_blank">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    Comprar ahora
+                  </a>
+                </div>
+              </div>
 
+              <!-- INFORMACIÓN (texto, scroll normal) -->
+              <div class="lg:w-4/12">
+                <div class="bg-white rounded-2xl">
                   <!-- DESCRIPCIÓN -->
                   <div>
                     <h2 class="font-display font-semibold text-amp-navy text-lg mb-3 text-balance">Descripción</h2>
